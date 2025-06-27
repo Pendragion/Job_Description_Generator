@@ -1,12 +1,5 @@
-Job Description Generator - Final Fixed Version
-===============================================
+This version saves the .docx file to a public static directory and returns a download link.
 
-This version returns the .docx file correctly with all formatting:
-- Each section starts one line below its heading
-- Disclaimer included
-- Appendix sections are not present
-
-To deploy:
-1. Upload to GitHub
-2. Connect to Render and deploy as a web service
-3. Use POST to /generate-docx with JSON body
+Deployment Notes:
+- Ensure Render allows public static file access from the `static_docs` folder.
+- Output is a JSON response like: { "download_url": "https://..." }
