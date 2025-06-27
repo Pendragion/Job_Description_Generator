@@ -3,7 +3,7 @@ from docx import Document
 import os
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="public", static_url_path="/public")
 
 OUTPUT_DIR = "public"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
