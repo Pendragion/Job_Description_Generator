@@ -43,7 +43,6 @@ def generate_docx():
         "receive other benefits and privileges of employment, an accommodation request must be submitted to the Human Resource Department for review."
     )
 
-    # Remove paragraphs containing "Appendix 1" or "Appendix 2"
     for para in doc.paragraphs:
         if para.text.startswith("Appendix 1") or para.text.startswith("Appendix 2"):
             p = para._element
@@ -53,4 +52,9 @@ def generate_docx():
     doc.save(temp.name)
     temp.close()
 
-    return send_file(temp.name, as_attachment=True, download_name=f"{data.get('job_title', 'Job_Description')}.docx")
+    return send_file(
+        temp.name,
+        mimetype='application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        as_attachment=True,
+        download_name=f"{data.get('job_title', 'Job_Description')}.docx"
+    )
