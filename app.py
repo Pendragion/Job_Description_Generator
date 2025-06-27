@@ -5,7 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-OUTPUT_DIR = "static_docs"
+OUTPUT_DIR = "public"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 @app.route('/generate-docx', methods=['POST'])
